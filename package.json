@@ -1,6 +1,6 @@
 {
   "name": "as-pedersen",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A pedersen hash implementation in AssemblyScript",
   "type": "module",
   "main": "index.js",
