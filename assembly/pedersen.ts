@@ -293,14 +293,7 @@ function bytesToHex(uint8a: Uint8Array): string {
 
 // Regex is not supported
 const stripLeadingZeros = (s: string): string => {
-  let arr = s.split('');
-
-  let i = 0;
-  while (arr[i] === '0') {
-    arr.shift();
-    i++;
-  }
-  return arr.join('');
+  return BigInt.fromString(s, 16).toString(16);
 };
 const bytesToHexEth = (uint8a: Uint8Array): string =>
   `0x${stripLeadingZeros(bytesToHex(uint8a))}`;
