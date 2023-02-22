@@ -249,7 +249,7 @@ function numTo32bStr(num: BigInt): string {
   if (!(num instanceof BigInt)) throw new Error('Expected BigInt');
   if (!(BN('0').lte(num) && num.lt(POW_2_256)))
     throw new Error('Expected number < 2^256');
-  return num.toString(16).padStart(64, '0'); // TODO: Need to strip 0x if doing toHex?
+  return num.toString(16).padStart(64, '0');
 }
 
 function strip0x(hex: string): string {
