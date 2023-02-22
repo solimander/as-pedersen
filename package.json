@@ -1,0 +1,22 @@
+{
+  "name": "as-pedersen",
+  "version": "0.1.0",
+  "description": "A pedersen hash implementation in AssemblyScript",
+  "ascMain": "assembly/index.ts",
+  "types": "assembly/index.ts",
+  "scripts": {
+    "build": "asc assembly/pedersen.ts -o build/pedersen.wasm --optimize",
+    "format": "prettier --write \"assembly/**/*.ts\""
+  },
+  "keywords": [
+    "assemblyscript",
+    "pedersen",
+    "hash"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "assemblyscript": "^0.27.0",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5"
+  }
+}
