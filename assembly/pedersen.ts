@@ -270,15 +270,15 @@ function hexToBytes(hex: string): Uint8Array {
   for (let i = 0; i < array.length; i++) {
     const j = i * 2;
     const hexByte = hex.slice(j, j + 2);
-    const byte = i32.parse(hexByte, 16);
+    const byte = Number.parseInt(hexByte, 16);
     if (Number.isNaN(byte) || byte < 0)
       throw new Error('Invalid byte sequence');
-    array[i] = byte;
+    array[i] = <u32>byte;
   }
   return array;
 }
 
-const hexes = new Array<number>(256).map((_: number, i: i32) =>
+const hexes = new Array<number>(256).map<string>((_: number, i: i32) =>
   i.toString(16).padStart(2, '0')
 );
 function bytesToHex(uint8a: Uint8Array): string {
@@ -331,7 +331,7 @@ function invert(number: BigInt, modulo: BigInt): BigInt {
 }
 
 // https://docs.starkware.co/starkex/pedersen-hash-function.html
-const PEDERSEN_POINTS = [
+const PEDERSEN_POINTS: Point[] = [
   new Point(
     BN(
       '2089986280348253421170679821480865132823066470938446095505822317253594081284'
@@ -373,9 +373,8 @@ const PEDERSEN_POINTS = [
     )
   ),
 ];
-const PEDERSEN_POINTS_JACOBIAN = PEDERSEN_POINTS.map((p: Point) =>
-  JacobianPoint.fromAffine(p)
-);
+const PEDERSEN_POINTS_JACOBIAN: JacobianPoint[] =
+  PEDERSEN_POINTS.map<JacobianPoint>((p: Point) => JacobianPoint.fromAffine(p));
 
 function pedersenPrecompute(
   p1: JacobianPoint,
