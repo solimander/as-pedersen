@@ -13,7 +13,7 @@ module.exports = {
   flags: {
     // "--debug": [],
     /** This is required. Do not change this. The filename is ignored, but required by the compiler. */
-    "--binaryFile": ["optimized.wasm"],
+    "--binaryFile": ["release.wasm"],
     /** To enable wat file output, use the following flag. The filename is ignored, but required by the compiler. */
     // "--textFile": ["untouched.wat"],
     "--runtime": ["stub"], // Acceptable values are: full, half, stub (arena), and none,
