@@ -3,7 +3,7 @@ const path = require('path');
 
 const imports = { /* imports go here */ };
 const compiled = new WebAssembly.Module(
-  fs.readFileSync(path.join(__dirname, '/build/optimized.wasm'))
+  fs.readFileSync(path.join(__dirname, '/build/release.wasm'))
 );
 
 Object.defineProperty(module, 'exports', {
